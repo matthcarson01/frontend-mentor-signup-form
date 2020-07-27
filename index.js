@@ -31,8 +31,13 @@ const checkTextInput = (input) => {
 }
 
 const checkEmailInput = (input) => {
+    //Regular Expression for Email
+        const rEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     //check if value of email
     if(input.value.trim() === ''){
+        formSuccess = false;
+        return addErrorClass(input)
+    }else if(rEx.test(String(input.value.trim()).toLowerCase())){
         formSuccess = false;
         return addErrorClass(input)
     } else {
@@ -41,7 +46,7 @@ const checkEmailInput = (input) => {
 }
 
 const checkPasswordInput = (input) => {
-    //check if value of password
+     //check if value of password
     if(input.value.trim() === ''){
         formSuccess = false;
         return addErrorClass(input)
